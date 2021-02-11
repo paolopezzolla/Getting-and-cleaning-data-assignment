@@ -13,7 +13,7 @@ x_test   <- read.table("./test/X_test.txt")
 y_test   <- read.table("./test/Y_test.txt") 
 sub_test <- read.table("./test/subject_test.txt")
 
-#read data description
+#read variable names
 variable_names <- read.table("./features.txt")
 
 # read activity labels 
@@ -24,7 +24,7 @@ x_total   <- rbind(x_train, x_test)
 y_total   <- rbind(y_train, y_test) 
 sub_total <- rbind(sub_train, sub_test) 
 
-# keep only measurements for mean and standard deviation 
+# analysis for mean and standard deviation 
 sel_features <- variable_names[grep(".*mean\\(\\)|std\\(\\)", features[,2], ignore.case = FALSE),]
 x_total      <- x_total[,sel_features[,1]]
 
