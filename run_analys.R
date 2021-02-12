@@ -25,7 +25,7 @@ y_total   <- rbind(y_train, y_test)
 sub_total <- rbind(sub_train, sub_test) 
 
 
-sel_features <- variable_names[grep(".*mean\\(\\)|std\\(\\)", features[,2], ignore.case = FALSE),]
+sel_features <- variable_names[grep(".*mean\\(\\)|std\\(\\)", variable_names[,2], ignore.case = FALSE),]
 x_total      <- x_total[,sel_features[,1]]
 
 # col names
@@ -46,3 +46,4 @@ total_mean <- total %>% group_by(activity, subject) %>% summarize_each(funs(mean
 
 # texting file of final dataset
 write.table(total_mean, file = "./tidydata.txt", row.names = FALSE, col.names = TRUE) 
+
